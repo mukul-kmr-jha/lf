@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Row, Col } from 'antd';
+import LayoutComponent from "./components/LayoutComponent";
+import HeaderComponent from "./components/HeaderComponent";
+import CardsContainerComponent from "./components/CardContainerComponent";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <LayoutComponent>
+          <HeaderComponent/>
+          <Row>
+              <Col span={6} className="content-left"/>
+              <Col span={18} className="content-right">
+                  <CardsContainerComponent/>
+              </Col>
+          </Row>
+      </LayoutComponent>
     </div>
   );
 }
