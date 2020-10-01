@@ -10,11 +10,11 @@ const CardsContainer = styled(Row)`
 const CardsContainerComponent : FC = () => {
     return (
         <CardsContainer>
-            <CardComponent/>
-            <CardComponent/>
-            <CardComponent/>
-            <CardComponent/>
-            <CardComponent/>
+            <CardComponent key={1} />
+            <CardComponent key={12} />
+            <CardComponent key={123} />
+            <CardComponent key={124} />
+            <CardComponent key={125} />
         </CardsContainer>
 
     );

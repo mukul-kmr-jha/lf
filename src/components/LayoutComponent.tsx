@@ -31,12 +31,12 @@ const LayoutComponent: FC<Props> = (props)=> {
                     <Menu.Item key="1" icon={<BsGrid />} />
                     <Menu.Item key="2" icon={<IoMdShirt />}/>
                     <Menu.Item key="3" icon={<AiOutlineFile />} />
-                    <Menu.Item key="3" icon={<AiOutlineFile />} />
-                    <Menu.Item key="3" icon={<AiOutlineFile />} />
-                    <Menu.Item key="3" icon={<AiOutlineFile />} />
-                    <Menu.Item key="4" icon={<FiBox />} />
-                    <Menu.Item key="5" icon={<BiCommentDetail />} />
-                    <Menu.Item key="6" icon={<AiOutlineSetting />} />
+                    <Menu.Item key="4" icon={<AiOutlineFile />} />
+                    <Menu.Item key="5" icon={<AiOutlineFile />} />
+                    <Menu.Item key="6" icon={<AiOutlineFile />} />
+                    <Menu.Item key="7" icon={<FiBox />} />
+                    <Menu.Item key="8" icon={<BiCommentDetail />} />
+                    <Menu.Item key="9" icon={<AiOutlineSetting />} />
                 </Menu>
             </Sider>
             <Layout className="site-layout">

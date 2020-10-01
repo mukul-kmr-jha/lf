@@ -16,16 +16,23 @@ aside {
     position: relative;
 }
 
-.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected:after {
-    content: "";
-    width: 200px;
-    height: 500px;
-    background: white;
+.ant-menu-item.ant-menu-item-selected span {
     position: absolute;
+    width: 4px;
+    height: 58%;
+    top: 3px;
     left: 0;
-    border-top-right-radius: 2px;
-    border-top-left-radius: 2px;
-    top: 5px;
+    background: white;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.ant-select-selection-item .ant-col-2 {
+    display: none;
+}
+
+.ant-select-selection-item .ant-col-22 p:first-child {
+    font-weight: normal;
 }
 
 .ant-menu-inline-collapsed > .ant-menu-item {
@@ -42,4 +49,48 @@ aside {
 
 .content-left {
     border-right: 1px solid #f0f2f5;
+}
+
+.ant-modal-root .ant-modal-wrap .ant-modal {
+    width: 900px!important;
+}
+
+.ant-form {
+    width: 100%;
+}
+
+.ant-modal {
+    top: 70px;
+}
+
+.ant-modal-header {
+    border-radius: 12px 12px 0 0;
+}
+
+.ant-modal-content {
+    border-radius: 10px;
+    height: 600px;
+}
+
+.ant-modal-footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.ant-upload.ant-upload-select {
+    width: 100%;
+}
+
+.ant-upload-list.ant-upload-list-text {
+    display: none;
+}
+
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    color: black;
+    font-size: 18px;
+    content: '*';
+    position: absolute;
+    right: -16px;
+    top: 5px;
 }

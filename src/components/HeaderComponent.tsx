@@ -4,7 +4,8 @@ import { AiOutlineSearch, AiOutlineQuestionCircle, AiOutlineBell } from "react-i
 import { FaExchangeAlt } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import styled from "styled-components";
-import firstCry from '../images/firstCry.png';
+import firstCry from './assests/images/firstCry.png';
+import Avatar from './assests/images/Avatar.png';
 
 const Header = styled(Row)`
     padding: 16px 12px 6px 18px;
@@ -13,6 +14,7 @@ const Header = styled(Row)`
     justify-content: space-between;
     & div > span {
         padding: 10px;
+        cursor: pointer;
         &.active {
             background: #bae7ff;
             border-radius: 4px;
@@ -22,6 +24,7 @@ const Header = styled(Row)`
     & button {
         position: relative;
         margin-right: 10px;
+        cursor: pointer;
         & svg {
             position: absolute;
             top: 8px;
@@ -46,16 +49,19 @@ const Header = styled(Row)`
             font-weight: bold;
         }
         & div {
-         & svg {
+          & svg {
             margin: 0 10px;
+            cursor: pointer;
           }
           & .company-img {
             border-left: 1px solid  #f0f2f5;
             padding: 18px 0 18px 12px;
+            cursor: pointer;
           }
           & .user-img {
             border-radius: 50%;
             padding: 12px;
+            cursor: pointer;
           }
     }
 `;
@@ -70,7 +76,7 @@ const HeaderComponent: FC = () => {
                     <AiOutlineQuestionCircle />
                     <AiOutlineBell/>
                     <img className="company-img" src={firstCry} alt="firstCry" height="100%" width={60}/>
-                    <img className="user-img" src={firstCry} alt="firstCry" height="100%" width={60}/>
+                    <img className="user-img" src={Avatar} alt="Avatar" height="100%" width={60}/>
                 </div>
             </Header>
             <Header>
