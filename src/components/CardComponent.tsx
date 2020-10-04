@@ -47,10 +47,27 @@ const ColorsRow = styled(Row)`
 `;
 
 const FormContainer = styled(Row)`
-    padding: 0 16px 16px 16px;
+    padding: 0 16px 16px 24px;
     & .ant-col-12 {
         margin-right: 15px;
     }
+    &.finalStep {
+        & .ant-col.ant-form-item-label label {
+            color: #676773;    
+        }
+        & .ant-form-vertical .ant-form-item-label {
+            padding: 0;
+        }
+        & .ant-form-item-control {
+            font-size: 16px;
+        }
+    }
+    
+`;
+
+const ImageContainer = styled(Col)`
+    background: url('${ProductImg}');
+    background-size: cover;
 `;
 
 const FinalNote = styled(Row)`
@@ -58,7 +75,7 @@ const FinalNote = styled(Row)`
     background: #FFFEE5;
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     border: 1px solid rgba(0, 1, 38, 0.1);
     & svg {
         color: #1d90ff;
@@ -86,10 +103,14 @@ const UploadButton = styled(Button)`
     border: 1px dashed;
     width: 100%;
     text-align: unset;
+    margin-top: 6px;
     & svg {
         position: absolute;
         top: 7px;
         right: 10px;
+    }
+    &.disabled {
+        border: 1px solid;
     }
 `;
 
@@ -192,15 +213,15 @@ const CardComponent : FC = () => {
                     ]}
             >
                 <Row>
-                    <Col span={6} className="image-container">
+                    <Col span={8} className="image-container">
                         <img alt="example" src={ProductImg} width={200}/>
                     </Col>
-                    <Col span={18} className="form-container">
+                    <Col span={16} className="form-container">
                         <PageHeader
                             onBack={handlePrevStep}
                             title="Assign to Factory"
                         />
-                        <FormContainer>
+                        <FormContainer className={currentStep === ModalFormStep.FinalStep ? 'finalStep' : ''}>
                             {currentStep === ModalFormStep.FinalStep && (
                                 <FinalNote>
                                     <AiOutlineInfoCircle/> You won't be able to change the details later
@@ -220,7 +241,7 @@ const CardComponent : FC = () => {
                                     ) : formData.factory}
                                 </Form.Item>
                                 {currentStep > ModalFormStep.FactoryStep && (
-                                    <Form.Item label={currentStep !== ModalFormStep.FinalStep ? "Assign for Design" : "Design"} required={currentStep !== ModalFormStep.FinalStep}>
+                                    <Form.Item label={currentStep !== ModalFormStep.FinalStep ? "Assign for design" : "Design"} required={currentStep !== ModalFormStep.FinalStep}>
                                         {currentStep !== ModalFormStep.FinalStep ? (
                                             <Select onChange={(value: string) => handleFormChange({ design: value })} style={{ width: '100%'}} placeholder="Select Design">
                                                 {designs.map((design: DesignOptionType) => (
@@ -256,7 +277,7 @@ const CardComponent : FC = () => {
                                                                     quantity: isNaN(+event.target.value) ? undefined : +event.target.value
                                                                 })}
                                                         value={formData.quantity ? formData.quantity : undefined}/>
-                                                ) : formData.quantity}
+                                                ) : `${formData.quantity} meter`}
                                             </Form.Item>
                                         )}
                                     </Col>
@@ -283,7 +304,7 @@ const CardComponent : FC = () => {
                                                         </UploadButton>
                                                     </Upload>
                                                 ) : (
-                                                    <UploadButton disabled>
+                                                    <UploadButton className='disabled' disabled>
                                                         {formData.fileName}
                                                         <AiOutlineEye />
                                                     </UploadButton>

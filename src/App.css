@@ -52,7 +52,7 @@ aside {
 }
 
 .ant-modal-root .ant-modal-wrap .ant-modal {
-    width: 900px!important;
+    width: 85%!important;
 }
 
 .ant-form {
@@ -65,11 +65,38 @@ aside {
 
 .ant-modal-header {
     border-radius: 12px 12px 0 0;
+    border: none;
+}
+
+.ant-modal-footer button {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.ant-page-header.ant-page-header-ghost {
+    padding: 0 16px 24px 24px;
+}
+
+.ant-page-header-heading-left {
+    margin: 0;
+}
+
+.ant-modal-title {
+    font-weight: 700;
 }
 
 .ant-modal-content {
-    border-radius: 10px;
+    border-radius: 12px;
     height: 600px;
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 100%;
+}
+
+.ant-form-item {
+    margin-bottom: 16px;
 }
 
 .ant-modal-footer {
