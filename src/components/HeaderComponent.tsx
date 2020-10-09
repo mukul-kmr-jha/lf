@@ -16,15 +16,16 @@ const Header = styled(Row)`
         padding: 10px;
         cursor: pointer;
         &.active {
-            background: #bae7ff;
+            background: #E5F1FF;
             border-radius: 4px;
-            color: #0050b3;
+            color: #0067E2;
         }
     }
     & button {
         position: relative;
         margin-right: 10px;
         cursor: pointer;
+        font-weight: 700;
         & svg {
             position: absolute;
             top: 8px;
@@ -90,7 +91,7 @@ const HeaderComponent: FC = () => {
                 </div>
                 <div>
                     <Button>
-                        <FaExchangeAlt/>Stack I/O
+                        <FaExchangeAlt/>Stock I/O
                     </Button>
                     <Button type="primary">
                         Add New <IoIosArrowDown/>

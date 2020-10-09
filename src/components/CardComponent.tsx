@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FC, useState} from 'react';
 import {Col, Modal, Row, PageHeader, Select, Form, Button, Input, Upload} from "antd";
 import { BsPaperclip } from 'react-icons/bs';
-import { AiOutlineEye,AiOutlineInfoCircle } from 'react-icons/ai';
+import { AiOutlineEye, AiOutlineInfoCircle, AiFillCaretDown } from 'react-icons/ai';
 import styled from "styled-components";
 import {UploadChangeParam} from "antd/es/upload";
 import ProductImg from './assests/images/ProductImg.png';
@@ -65,10 +65,6 @@ const FormContainer = styled(Row)`
     
 `;
 
-const ImageContainer = styled(Col)`
-    background: url('${ProductImg}');
-    background-size: cover;
-`;
 
 const FinalNote = styled(Row)`
     border-radius: 5px;
@@ -85,22 +81,28 @@ const FinalNote = styled(Row)`
 `;
 
 const StyledOption = styled(Row)`
+    & .ant-col-2 {
+        padding-top:2px;
+    }
     & img {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
     }
     & p {
         margin-bottom: 0;
-        font-size: 14px;
+        font-size: 12px;
+        color: #676773;
         &:first-child {
-            font-weight: bold;
+            font-weight: 400;
+            font-size: 14px;
+            color: black;
         }
     }
 `;
 
 const UploadButton = styled(Button)`
-    border: 1px dashed;
+    border: 1px dashed #d9d9d9;
     width: 100%;
     text-align: unset;
     margin-top: 6px;
@@ -110,7 +112,16 @@ const UploadButton = styled(Button)`
         right: 10px;
     }
     &.disabled {
-        border: 1px solid;
+        border: none;
+        color: black;
+        padding: 10px;
+        height: 44px;
+        padding: 10px 40px 10px 10px;
+        width: fit-content;
+        & svg {
+            position: absolute;
+            top: 16px;
+        }
     }
 `;
 
@@ -214,7 +225,7 @@ const CardComponent : FC = () => {
             >
                 <Row>
                     <Col span={8} className="image-container">
-                        <img alt="example" src={ProductImg} width={200}/>
+                        <img alt="productImg" src={ProductImg}/>
                     </Col>
                     <Col span={16} className="form-container">
                         <PageHeader
@@ -233,7 +244,12 @@ const CardComponent : FC = () => {
                             >
                                 <Form.Item label="Factory" required={currentStep !== ModalFormStep.FinalStep}>
                                     {currentStep !== ModalFormStep.FinalStep ? (
-                                        <Select onChange={(value: string) => handleFormChange({ factory: value })} style={{ width: '100%'}} placeholder="Select Factory">
+                                        <Select
+                                            suffixIcon={<AiFillCaretDown/>}
+                                            style={{ width: '100%'}}
+                                            placeholder="Select factory"
+                                            onChange={(value: string) => handleFormChange({ factory: value })}
+                                        >
                                             {factories.map((factory: string) => (
                                                 <Option key={factory} value={factory}>{factory}</Option>
                                             ))}
@@ -243,7 +259,12 @@ const CardComponent : FC = () => {
                                 {currentStep > ModalFormStep.FactoryStep && (
                                     <Form.Item label={currentStep !== ModalFormStep.FinalStep ? "Assign for design" : "Design"} required={currentStep !== ModalFormStep.FinalStep}>
                                         {currentStep !== ModalFormStep.FinalStep ? (
-                                            <Select onChange={(value: string) => handleFormChange({ design: value })} style={{ width: '100%'}} placeholder="Select Design">
+                                            <Select
+                                                suffixIcon={<AiFillCaretDown/>}
+                                                placeholder="Search by Name or Design ID"
+                                                style={{ width: '100%'}}
+                                                onChange={(value: string) => handleFormChange({ design: value })}
+                                            >
                                                 {designs.map((design: DesignOptionType) => (
                                                     <Option key={design.code} value={design.name}>
                                                         <StyledOption>
